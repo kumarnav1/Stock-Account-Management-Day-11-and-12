@@ -3,6 +3,7 @@ package com.bl.stock_account_management;
 import java.util.Scanner;
 
 public class StockAccountMain {
+
     public static void main(String[] args) {
 
         System.out.println("Welcome to Stock Account Management System.");
@@ -18,5 +19,15 @@ public class StockAccountMain {
         }
 
         stockPortfolio.calculateStock();
+
+        while (true) {
+
+            System.out.print("\n Enter a positive number to withdraw amount, to exit press 0 : ");
+            int var = (scanner.nextInt() > 0) ? stockPortfolio.debit() : 0;
+            if (var == 0) {
+                System.out.println("Process Terminated.");
+                return;
+            }
+        }
     }
 }
